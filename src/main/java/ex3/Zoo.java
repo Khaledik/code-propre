@@ -1,49 +1,67 @@
 package ex3;
+
+import ex3.Animal;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Représente un zoo avec un nom et une liste d'animaux.
+ */
 public class Zoo {
 
-	private String nom;
-	private SavaneAfricaine savaneAfricaine;
-	private ZoneCarnivore zoneCarnivore;
-	private FermeReptile fermeReptile;
-	private Aquarium aquarium;
-	
-	public Zoo(String nom){
-		this.nom = nom;
-	}
-	
-	public void addAnimal(String nomAnimal, String typeAnimal, String comportement){
-		if (typeAnimal.equals("MAMMIFERE") && comportement.equals("CARNIVORE")){
-			zoneCarnivore.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-		else if (typeAnimal.equals("MAMMIFERE") && comportement.equals("HERBIVORE")){
-			savaneAfricaine.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-		else if (typeAnimal.equals("REPTILE")){
-			fermeReptile.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-		else if (typeAnimal.equals("POISSON")){
-			aquarium.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-	}
-	
-	public void afficherListeAnimaux(){
-		savaneAfricaine.afficherListeAnimaux();
-		zoneCarnivore.afficherListeAnimaux();
-		fermeReptile.afficherListeAnimaux();
-		aquarium.afficherListeAnimaux();
-	}
+    /**
+     * Nom du zoo.
+     */
+    private String nom;
 
-	/** Getter for nom
-	 * @return the nom
-	 */
-	public String getNom() {
-		return nom;
-	}
+    /**
+     * Liste des animaux présents dans le zoo.
+     */
+    private List<Animal> Animaux = new ArrayList<>();
 
-	/** Setter
-	 * @param nom the nom to set
-	 */
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+    /**
+     * Constructeur pour créer un zoo avec un nom spécifique.
+     *
+     * @param nom le nom du zoo
+     */
+    public Zoo(String nom) {
+        this.nom = nom;
+    }
+
+    /**
+     * Ajoute un animal à la liste des animaux du zoo.
+     *
+     * @param animal l'animal à ajouter
+     */
+    public void addAnimal(Animal animal) {
+        Animaux.add(animal);
+    }
+
+    /**
+     * Affiche la liste des animaux du zoo.
+     */
+    public void afficherListeAnimaux() {
+        for (Animal animal : Animaux) {
+            System.out.println(animal);
+        }
+    }
+
+    /**
+     * Getter pour le nom du zoo.
+     *
+     * @return le nom du zoo
+     */
+    public String getNom() {
+        return nom;
+    }
+
+    /**
+     * Setter pour le nom du zoo.
+     *
+     * @param nom le nouveau nom du zoo
+     */
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 }
